@@ -19,4 +19,4 @@ MonoBehaviour:
   projectileSpeed: 2
   rarity: 60
   type: 1
-  difficultyLvl: 1
+  difficultyLvl: 2

@@ -35,6 +35,7 @@ public class EnemyStats : ScriptableObject
 
     public EnemyType Type { get => type; }
     public int DifficultyLvl { get => difficultyLvl; set => difficultyLvl = value; }
+    public EnemyRarity Rarity { get => rarity; }
 
     public void Execute()
     {

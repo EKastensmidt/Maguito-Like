@@ -41,12 +41,10 @@ public class EnemySpitter : Enemy
         if(distance < 4)
         {
             permanentStop = true;
-            //rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, EnemyStats.CurrentSpeed * Time.deltaTime);
-            //rb.MovePosition((Vector2)transform.position + (direction * EnemyStats.CurrentSpeed * Time.deltaTime));
         }
     }
 
