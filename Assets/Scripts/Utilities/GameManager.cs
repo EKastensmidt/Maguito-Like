@@ -23,16 +23,14 @@ public class GameManager : MonoBehaviour
     {
         if (GameState.currentGameState == CurrentGameState.PickUpgradeState && EnemyManager.enemiesSpawned)
         {
-            UpgradeManager.DraftUpgrades(upgradeCards);
-            EnemyManager.enemiesSpawned = false;
+            StartCoroutine(GameStateTransition());
         }
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.H))
-    {
-            UpgradeManager.DraftUpgrades(upgradeCards);
-            UpgradeManager.count++;
     }
-#endif
 
+    private IEnumerator GameStateTransition()
+    {
+        EnemyManager.enemiesSpawned = false;
+        yield return new WaitForSeconds(1.5f);
+        UpgradeManager.DraftUpgrades(upgradeCards);
     }
 }
