@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         int waveAmount = EnemyManager.SetWaveSpawnAmount(roundDifficulty);
         while (EnemyManager.spawning == true)
         {
-            EnemyManager.SpawnEnemies(enemyList, spawnRange, roundDifficulty, waveAmount, transform);
+            EnemyManager.SpawnEnemies(spawnRange, waveAmount, transform);
             yield return new WaitForSeconds(3f);
         }
         yield return null;

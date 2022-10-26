@@ -34,7 +34,7 @@ public static class EnemyManager
         {
             EnemyStats.EnemyRarity enemyRarity = CheckEnemyRarity();
 
-            if (enemyList[0].GetComponent<Enemy>().EnemyStats.Rarity == enemyRarity)
+            if (enemyList[0].GetComponent<Enemy>().EnemyStats.Rarity == enemyRarity)// Based on rarity should chouse enemy out of list instead of trying a million times
             {
                 enemiesToSpawn.Add(Resources.Load<GameObject>($"Enemies/{enemyList[0].name}"));
                 currentWaveAmount += enemyList[0].GetComponent<Enemy>().EnemyStats.DifficultyLvl;
@@ -48,7 +48,7 @@ public static class EnemyManager
         UiStatManager.ChangeAmount("CurrentEnemies", enemiesToSpawnCount.ToString());
     }
 
-    public static void SpawnEnemies(List<GameObject> enemyList, float spawnRange, int roundDifficulty, int waveAmount, Transform parentTransform)
+    public static void SpawnEnemies(float spawnRange, int waveAmount, Transform parentTransform)
     {
         for (int i = 0; i < waveAmount; i++)
         {
