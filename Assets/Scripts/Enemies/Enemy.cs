@@ -35,6 +35,9 @@ public class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
-        
+        EnemyManager.enemiesToSpawnCount--;
+        UiStatManager.ChangeAmount("CurrentEnemies", EnemyManager.enemiesToSpawnCount.ToString());
+        EnemyManager.CheckEnemyList();
+        Destroy(gameObject);
     }
 }

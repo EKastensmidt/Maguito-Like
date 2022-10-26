@@ -3561,6 +3561,7 @@ MonoBehaviour:
   - {fileID: 8832979833528358597, guid: 48f1d37192ec0c04185493cd8641bad1, type: 3}
   - {fileID: 8832979833528358597, guid: cddbed1efefb7d6439f29ca29e948016, type: 3}
   spawnRange: 4
+  roundDifficulty: 6
 --- !u!1 &1092493464
 GameObject:
   m_ObjectHideFlags: 0

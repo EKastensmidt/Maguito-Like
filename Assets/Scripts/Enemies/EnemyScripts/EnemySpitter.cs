@@ -80,11 +80,4 @@ public class EnemySpitter : Enemy
             Die();
         }
     }
-    public override void Die()
-    {
-        EnemyManager.enemiesToSpawn.RemoveAt(0);
-        UiStatManager.ChangeAmount("CurrentEnemies", EnemyManager.enemiesToSpawn.Count.ToString());
-        EnemyManager.CheckEnemyList();
-        Destroy(gameObject);
-    }
 }

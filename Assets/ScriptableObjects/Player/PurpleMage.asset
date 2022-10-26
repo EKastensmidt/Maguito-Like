@@ -20,3 +20,4 @@ MonoBehaviour:
   projectileSpeed: 4
   projectileDamage: 10
   projectileSize: 1
+  critChance: 0

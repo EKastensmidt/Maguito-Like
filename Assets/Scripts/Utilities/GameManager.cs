@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameStateTransition()
     {
         EnemyManager.enemiesSpawned = false;
+        EnemySpawner.UpdateRoundDifficulty();
         yield return new WaitForSeconds(1.5f);
         UpgradeManager.DraftUpgrades(upgradeCards);
     }

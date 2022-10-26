@@ -53,14 +53,6 @@ public class EnemyEater : Enemy
         }
     }
 
-    public override void Die()
-    {
-        EnemyManager.enemiesToSpawn.RemoveAt(0);
-        UiStatManager.ChangeAmount("CurrentEnemies", EnemyManager.enemiesToSpawn.Count.ToString());
-        EnemyManager.CheckEnemyList();
-        Destroy(gameObject);
-    }
-
     private void ApplySelfKnockback(Collision2D collision)
     {
         Vector2 difference = (transform.position - collision.gameObject.transform.position).normalized;

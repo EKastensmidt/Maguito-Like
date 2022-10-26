@@ -7,12 +7,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private float spawnRange;
 
-    private int roundDifficulty = 5;
-
-    private int roundsPassed = 0;
+    private static int roundDifficulty = 6;
+    private static int roundsPassed = 1;
 
     public List<GameObject> EnemyList { get => enemyList; set => enemyList = value; }
-    public int RoundsPassed { get => roundsPassed; set => roundsPassed = value; }
+    public static int RoundsPassed { get => roundsPassed; set => roundsPassed = value; }
 
     void Start()
     {
@@ -23,15 +22,37 @@ public class EnemySpawner : MonoBehaviour
     {
         if(GameState.currentGameState == CurrentGameState.PlayingState && !EnemyManager.enemiesSpawned)
         {
-            EnemyManager.SpawnEnemies(enemyList, spawnRange, roundsPassed, roundDifficulty, transform);
+            EvenRoundDifficulty();
+            EnemyManager.InitializeComponents(enemyList, roundDifficulty);
+            StartCoroutine(spawnWave());
             EnemyManager.enemiesSpawned = true;
         }
 
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.J))
+    }
+
+    public static void UpdateRoundDifficulty()
+    {
+        roundsPassed++;
+        roundDifficulty += roundsPassed;
+    }
+
+    private IEnumerator spawnWave()
+    {
+        int waveAmount = EnemyManager.SetWaveSpawnAmount(roundDifficulty);
+        while (EnemyManager.spawning == true)
         {
-            EnemyManager.SpawnEnemies(enemyList, spawnRange, roundsPassed, roundDifficulty, transform);
+            EnemyManager.SpawnEnemies(enemyList, spawnRange, roundDifficulty, waveAmount, transform);
+            yield return new WaitForSeconds(3f);
         }
-#endif
+        yield return null;
+    }
+
+    private void EvenRoundDifficulty()
+    {
+        int evenRoundDifficulty = roundDifficulty % 2;
+        if(evenRoundDifficulty == 1)
+        {
+            roundDifficulty--;
+        }
     }
 }
