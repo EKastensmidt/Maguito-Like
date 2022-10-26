@@ -22,6 +22,8 @@ public static class EnemyManager
         enemiesCurrentlySpawned = 0;
         spawning = true;
 
+        UiStatManager.ChangeAmount("Round", EnemySpawner.RoundsPassed.ToString());
+        UiStatManager.ChangeAmount("RoundDifficulty", roundDifficulty.ToString());
         SelectEnemyToSpawn(enemyList, roundDifficulty);
     }
 
