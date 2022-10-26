@@ -27,7 +27,7 @@ public static class EnemyManager
         SelectEnemyToSpawn(enemyList, roundDifficulty);
     }
 
-    private static void SelectEnemyToSpawn(List<GameObject> enemyList, int roundDifficulty)
+    private static void SelectEnemyToSpawn(List<GameObject> enemyList, int roundDifficulty) //working but really inefficiently, LIKE... REALLY INEFFICIENTLY.
     {
         RandomizeOrder(enemyList);
         if (currentWaveAmount < roundDifficulty)
