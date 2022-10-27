@@ -15,4 +15,4 @@ MonoBehaviour:
   cardName: Speed Up
   cardText: Increase movement speed value
   rarity: 0
-  upgradeAllowedTimes: 6
+  upgradeAllowedTimes: 5

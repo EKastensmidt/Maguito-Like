@@ -15,4 +15,4 @@ MonoBehaviour:
   cardName: Knockback Up
   cardText: Increase knockback value
   rarity: 0
-  upgradeAllowedTimes: 4
+  upgradeAllowedTimes: 5

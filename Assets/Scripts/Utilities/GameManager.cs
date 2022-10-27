@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour
     {
         SeparateCardsByRarity();
         GameState.currentGameState = CurrentGameState.PickUpgradeState;
+        UpgradeManager.initializeComponents(commonCards, rareCards, legendaryCards);
         UpgradeManager.InitializeUpgrades(upgradeCards);
-        UpgradeManager.DraftUpgrades(upgradeCards);
+        UpgradeManager.DraftUpgrades();
     }
 
     private void Update()
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         EnemyManager.enemiesSpawned = false;
         EnemySpawner.UpdateRoundDifficulty();
         yield return new WaitForSeconds(1.5f);
-        UpgradeManager.DraftUpgrades(upgradeCards);
+        UpgradeManager.DraftUpgrades();
     }
 
     private void SeparateCardsByRarity()
