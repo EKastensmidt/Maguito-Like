@@ -12,8 +12,15 @@ public static class GameState
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Upgrade> upgradeCards;
+
+    private List<Upgrade> commonCards;
+    private List<Upgrade> rareCards;
+    private List<Upgrade> mythicCards;
+    private List<Upgrade> legendaryCards;
+
     private void Start()
     {
+        SeparateCardsByRarity();
         GameState.currentGameState = CurrentGameState.PickUpgradeState;
         UpgradeManager.InitializeUpgrades(upgradeCards);
         UpgradeManager.DraftUpgrades(upgradeCards);
@@ -33,5 +40,32 @@ public class GameManager : MonoBehaviour
         EnemySpawner.UpdateRoundDifficulty();
         yield return new WaitForSeconds(1.5f);
         UpgradeManager.DraftUpgrades(upgradeCards);
+    }
+
+    private void SeparateCardsByRarity()
+    {
+        commonCards = new List<Upgrade>();
+        rareCards = new List<Upgrade>();
+        mythicCards = new List<Upgrade>();
+        legendaryCards = new List<Upgrade>();
+
+        foreach (Upgrade upgrade in upgradeCards)
+        {
+            switch (upgrade.UpgradeStats.Rarity)
+            {
+                case CardRarities.common:
+                    commonCards.Add(upgrade);
+                    break;
+                case CardRarities.rare:
+                    rareCards.Add(upgrade);
+                    break;
+                case CardRarities.legendary:
+                    legendaryCards.Add(upgrade);
+                    break;
+                case CardRarities.mythic:
+                    mythicCards.Add(upgrade);
+                    break;
+            }
+        }
     }
 }

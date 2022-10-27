@@ -4,6 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player", menuName = "Scriptable Object/Player", order = 0)]
 public class PlayerStats : ScriptableObject
 {
+    private Player playerReference;
+    public Player PlayerReference { get => playerReference; set => playerReference = value; }
+
     //PLAYER STATS
     [SerializeField] private float speed = 4;
     [SerializeField] private int maxHealth = 100;
@@ -38,8 +41,16 @@ public class PlayerStats : ScriptableObject
     public float CurrentCritChance { get => currentCritChance; set => currentCritChance = value; }
     public int CurrentMaxHealth { get => currentMaxHealth; set => currentMaxHealth = value; }
 
-    public void Execute()
+    //OTHER STATS
+    private float knockBack;
+    private float lifeSteal;
+    public float KnockBack { get => knockBack; set => knockBack = value; }
+    public float LifeSteal { get => lifeSteal; set => lifeSteal = value; }
+
+    public void Execute(Player player)
     {
+        playerReference = player;
+
         currentHealth = maxHealth;
         currentMaxHealth = maxHealth;
         currentDamage = projectileDamage;
@@ -56,5 +67,8 @@ public class PlayerStats : ScriptableObject
         UiStatManager.ChangeAmount("Speed", currentSpeed.ToString());
         UiStatManager.ChangeAmount("AttackSpeed", currentAttackSpeed.ToString());
         UiStatManager.ChangeAmount("ProjectileSpeed", currentProjectileSpeed.ToString());
+
+        knockBack = 0;
+        lifeSteal = 0;
     }
 }

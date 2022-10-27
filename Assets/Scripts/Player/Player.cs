@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     public virtual void Start()
     {
-        playerStats.Execute();
+        playerStats.Execute(this);
         GetPlayerComponents();
     }
 
@@ -49,5 +49,15 @@ public class Player : MonoBehaviour
     public void Die()
     {
         Debug.Log("Dead");
+    }
+
+    public void Heal(int healAmount)
+    {
+        playerStats.CurrentHealth += healAmount;
+        if (playerStats.CurrentHealth > playerStats.CurrentMaxHealth)
+        {
+            playerStats.CurrentHealth = playerStats.CurrentMaxHealth;
+        }
+        UiStatManager.ChangeAmount("Health", playerStats.CurrentHealth.ToString());
     }
 }

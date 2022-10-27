@@ -36,6 +36,11 @@ public static class UpgradeManager
         }
     }
 
+    private static void CheckCardRarity()
+    {
+
+    }
+
     public static void OnExecute(Upgrade upgrade)
     {
         upgrade.UpgradeStats.AllowedTimesCount--;

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Attack Speed Up
   cardText: Increase attack speed value
-  rarity: 0
+  rarity: 1
   upgradeAllowedTimes: 6

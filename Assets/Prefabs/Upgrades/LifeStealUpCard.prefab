@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4945922390122160698}
   - component: {fileID: 4945922390122160696}
   - component: {fileID: 4945922390122160697}
-  - component: {fileID: 7394152877029522426}
-  - component: {fileID: 3968994279695138027}
+  - component: {fileID: 5095381107946602339}
+  - component: {fileID: 8558506396514886857}
   m_Layer: 5
-  m_Name: ProjectileSpeedUp
+  m_Name: LifeStealUpCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: af70d81427e52eb4388bd6538127205a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -80,23 +80,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7394152877029522426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4945922390122160699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 312082f9c61d7ae40b55190a38aba54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeStats: {fileID: 11400000, guid: 15ca95b05b6774345a60cb0b30c9b3ad, type: 2}
-  playerStats: {fileID: 11400000, guid: 7a1bd897f70cf524583bc7468fc08c43, type: 2}
-  cardTitle: {fileID: 4945922390746071677}
-  cardText: {fileID: 4945922391479130936}
---- !u!114 &3968994279695138027
+--- !u!114 &5095381107946602339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,8 +124,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7394152877029522426}
-        m_TargetAssemblyTypeName: ProjectileSpeedUp, Assembly-CSharp
+      - m_Target: {fileID: 8558506396514886857}
+        m_TargetAssemblyTypeName: LifeStealUp, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
@@ -152,6 +136,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8558506396514886857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4945922390122160699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d920c3db3b0325f4b8ca11b1b4c64520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeStats: {fileID: 11400000, guid: 31bfd91f7984b2945b67cfe60fc63425, type: 2}
+  playerStats: {fileID: 11400000, guid: 7a1bd897f70cf524583bc7468fc08c43, type: 2}
+  cardTitle: {fileID: 4945922390746071677}
+  cardText: {fileID: 4945922391479130936}
 --- !u!1 &4945922390746071677
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 29.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 18.781693, y: 16.55065, z: 18.17588, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 19.38742, y: 0, z: 19.993347, w: 7.668236}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
